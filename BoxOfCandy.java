@@ -13,25 +13,42 @@ public class BoxOfCandy
     public String toString () {
         String s = "";
         for (int row= 0; row < box.length; row ++) {
-            for (int col= 0; col < box[0].length; row ++) {
+            for (int col= 0; col < box[0].length; col ++) {
                 s+= box [row][col] + " ";
             }
-            s+="/n" ;
+            s+="/n " ;
         }
         return s;
     }
     public boolean moveCandyToFirstRow(int col)
     { 
+       if (box[0][col] != null) return true;
+        for (int i = 1; i< box.length; i++) {
+           if (box[i][col] != null) {
+               box[0][col] = box[i][col];
+               box [i][col]= null; 
+               return true;
+           }
+       }
+       return false;
         
-        
-    }
+    }//
 
     /**
     * Removes from box and returns a piece of candy with flavor specified by the parameter, or
     * returns null if no such piece is found, as described in part (b)
     */
     public Candy removeNextByFlavor(String flavor)
-    { /* to be implemented in part (b) */ }
-
-    // There may be instance variables, constructors, and methods that are not shown.
+    { 
+        for (int row = box.length -1 ; row>=0; row--) {
+            for (int col = 0 ; col<box[0].length ; col++) {
+                Candy c= box[row][col];
+                if (c!=null && c.getFlavor().equals(flavor)) {
+                    box[row][col] = null;
+                    return c;
+                }
+            }
+        }
+        return null;
+    }
 }
