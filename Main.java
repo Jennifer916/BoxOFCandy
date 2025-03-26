@@ -21,10 +21,23 @@ public class Main {
         box1 [1] [4] = new Candy ("lime");
         box1 [2] [0] = new Candy ("cherry");
         box1 [2] [2] = new Candy ("lemon");
-        box1 [0] [4] = new Candy ("orange"); 
+        box1 [2] [4] = new Candy ("orange"); 
+        
         BoxOfCandy c = new BoxOfCandy(box1);
-        System.out.println(c);
-        System.out.println(c.removeNextByFlavor("cherry"));
-        System.out.println(c);
+        System.out.println(c); 
+
+        BoxOfCandy b = new BoxOfCandy(box1);
+        System.out.println(b.removeNextByFlavor("cherry"));
+        System.out.println(b); 
+
+        BoxOfCandy d = new BoxOfCandy(box1);
+        System.out.println(d.removeNextByFlavor("lime"));
+        System.out.println(d); 
+
+        BoxOfCandy e = new BoxOfCandy(box1);
+        System.out.println(e.removeNextByFlavor("grape"));
+        System.out.println(e); 
+        
+
     }
 }
